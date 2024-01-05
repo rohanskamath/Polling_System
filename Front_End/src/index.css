@@ -1,0 +1,13 @@
+body {
+  font-family: "Poppins", sans-serif;
+  font-family: "PT Serif", serif;
+  background: url(./assets/bg_image.jpg) no-repeat;
+  background-size: cover;
+}
+.bg-1 {
+  color: #ffffff;
+}
+
+.mouse-hover{
+  cursor: pointer;
+}
