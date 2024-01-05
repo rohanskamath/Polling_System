@@ -48,8 +48,8 @@ const PollStation = () => {
                   <label htmlFor="VoC">Vote of Choice</label>
                   <select className="form-select shadow-none" aria-label="Default select example" name='VoC' onChange={(e) => setPollValues({ ...pollValues, Voc: e.target.value })}>
                     <option value="">---- Select ----</option>
-                    <option value="0">Yes</option>
-                    <option value="1">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                   </select>
                 </div>
 
