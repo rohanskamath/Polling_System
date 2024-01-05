@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
 
 import LandingPage from './Components/LandingPage'
 import PollStation from './Components/PollStation'
