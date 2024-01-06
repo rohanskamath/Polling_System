@@ -30,7 +30,7 @@ const PollStation = () => {
   }
 
   return (
-    <section className="vh-100 loginPage">
+    <section className="vh-100">
       <ToastContainer />
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">

@@ -45,6 +45,64 @@ app.post("/pollstation/", (req, res) => {
   );
 });
 
+//Display table values into table
+app.get("/polltrends/", (req, res) => {
+  const sql = "SELECT * FROM vote";
+  db.query(sql, (err, result) => {
+    if (err) {
+      return res.json({
+        message: "oops!!...Something went wrong!!",
+      });
+    } else {
+      return res.json(result);
+    }
+  });
+});
+
+app.get("/counts", (req, res) => {
+  const { voting_choice } = req.query;
+  console.log(req.query);
+  const sql = `
+  SELECT COUNT(*) as count, DATE(casted_at) as casted_at
+  FROM vote
+  GROUP BY DATE(casted_at)
+  ORDER BY casted_at
+  `;
+
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error("Error retrieving data from MySQL:", err);
+    } else {
+      const data = result.map((row) => ({
+        count: row.count,
+        casted_at: row.casted_at.toISOString().split("T")[0],
+      }));
+      res.json({ data });
+    }
+  });
+});
+
+app.get("/results", (req, res) => {
+  const sql = `
+    SELECT COUNT(*) as count, voting_choice
+    FROM vote
+    GROUP BY voting_choice
+  `;
+
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error("Error retrieving data from MySQL:", err);
+      res.status(500).json({ error: "Internal Server Error" });
+    } else {
+      const data = result.map((row) => ({
+        count: row.count,
+        voting_choice: row.voting_choice === 1,
+      }));
+      res.json({ data });
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Listening at port ${port}`);
 });

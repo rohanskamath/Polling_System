@@ -11,3 +11,6 @@ body {
 .mouse-hover{
   cursor: pointer;
 }
+.bg-2 {
+  width: 500px;
+}
