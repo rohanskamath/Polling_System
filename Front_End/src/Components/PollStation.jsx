@@ -6,7 +6,7 @@ const PollStation = () => {
 
   const [pollValues, setPollValues] = useState({
     name: "",
-    vote_choice: "",
+    vote_choice: "1",
     casted_vote: ""
   });
 
@@ -22,7 +22,7 @@ const PollStation = () => {
 
         setTimeout(() => {
           window.location.reload();
-        }, 8000);
+        }, 6000);
       })
       .catch(err => {
         console.log(err)
@@ -46,7 +46,7 @@ const PollStation = () => {
 
                 <div className="form-outline mb-3">
                   <label htmlFor="VoC">Vote of Choice</label>
-                  <select className="form-select shadow-none" aria-label="Default select example" name='VoC' onChange={(e) => setPollValues({ ...pollValues, Voc: e.target.value })}>
+                  <select className="form-select shadow-none" value={pollValues.VoC} aria-label="Default select example" name='VoC' onChange={(e) => setPollValues({ ...pollValues, Voc: e.target.value })}>
                     <option value="">---- Select ----</option>
                     <option value="1">Yes</option>
                     <option value="0">No</option>

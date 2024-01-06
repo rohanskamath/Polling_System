@@ -26,6 +26,7 @@ db.connect((err) => {
 
 // Storing Votes in the database
 app.post("/pollstation/", (req, res) => {
+  console.log(req.body.vote_choice)
   const sql =
     "INSERT INTO vote (name, voting_choice, casted_at) VALUES (?,?,?)";
   db.query(
