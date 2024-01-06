@@ -60,8 +60,7 @@ app.get("/polltrends/", (req, res) => {
 });
 
 app.get("/counts", (req, res) => {
-  const { voting_choice } = req.query;
-  console.log(req.query);
+
   const sql = `
   SELECT COUNT(*) as count, DATE(casted_at) as casted_at
   FROM vote
@@ -71,7 +70,7 @@ app.get("/counts", (req, res) => {
 
   db.query(sql, (err, result) => {
     if (err) {
-      console.error("Error retrieving data from MySQL:", err);
+      console.error("Error retrieving data..", err);
     } else {
       const data = result.map((row) => ({
         count: row.count,
@@ -91,7 +90,7 @@ app.get("/results", (req, res) => {
 
   db.query(sql, (err, result) => {
     if (err) {
-      console.error("Error retrieving data from MySQL:", err);
+      console.error("Error retrieving data...", err);
       res.status(500).json({ error: "Internal Server Error" });
     } else {
       const data = result.map((row) => ({
