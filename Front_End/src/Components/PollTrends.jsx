@@ -83,10 +83,10 @@ const PollTrends = () => {
             ))}
         </tbody>
       </table>
-      <div className="container">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-md-6">
-            <div className="container bg-white bg-2 text-center p-3 mb-4">
+            <div className="container bg-white text-center p-3 mb-4">
               <h2 className="mt-5">{`Line Chart for ${votingChoice}`}</h2>
               <button
                 onClick={() => setVotingChoice("true")}
@@ -106,7 +106,7 @@ const PollTrends = () => {
           <div className="col-md-6">
             <div className="container bg-white bg-2 text-center p-3 mb-4">
               <h2 className="mt-5">Bar Chart</h2>
-              <Bar data={overallScore} />
+              <Bar data={overallScore}/>
             </div>
           </div>
         </div>
